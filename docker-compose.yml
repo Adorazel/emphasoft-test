@@ -1,0 +1,18 @@
+version: "3"
+
+networks:
+  web:
+    external: true
+
+services:
+  emphasoft:
+    build: .
+    restart: always
+    labels:
+      - traefik.backend=emphasoft
+      - traefik.frontend.rule=Host:emphasoft.adorazel.online
+      - traefik.docker.network=web
+      - traefik.default.protocol=http
+      - traefik.port=5000
+    networks:
+      - web
