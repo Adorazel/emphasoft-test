@@ -12,7 +12,7 @@ services:
       - traefik.backend=emphasoft
       - traefik.frontend.rule=Host:emphasoft.adorazel.online
       - traefik.docker.network=web
-      - traefik.default.protocol=http
+      - traefik.entryPoint=http
       - traefik.port=5000
     networks:
       - web
