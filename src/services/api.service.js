@@ -1,6 +1,6 @@
 export default class ApiService {
 
-  constructor(apiUrl = "http://emphasoft-test-assignment.herokuapp.com") {
+  constructor(apiUrl = "https://emphasoft-test-assignment.herokuapp.com") {
 
     this.apiUrl = apiUrl
     this.apiRoot = "/api/v1"
