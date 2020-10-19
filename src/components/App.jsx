@@ -1,18 +1,18 @@
 import React from "react"
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
+import {PublicRoute, PrivateRoute} from "./"
 import {LoginPage, MainPage, UserPage} from "../pages"
 
 
-const App = ({isAuth}) => {
-  return <Router>
-    <Switch>
-      <Route path="/users/create">{isAuth ? <UserPage/> : <Redirect to="/"/>}</Route>
-      <Route path="/users/edit/:id">{isAuth ? <UserPage/> : <Redirect to="/"/>}</Route>
-      <Route path="/users">{isAuth ? <MainPage/> : <Redirect to="/"/>}</Route>
-      <Route exact path="/">{!isAuth ? <LoginPage/> : <Redirect to="/users"/>}</Route>
-      <Route><Redirect to="/"/></Route>
-    </Switch>
-  </Router>
-}
+const App = () => <Router>
+  <Switch>
+    <PrivateRoute path="/users/create"><UserPage/></PrivateRoute>
+    <PrivateRoute path="/users/edit/:id"><UserPage/></PrivateRoute>
+    <PrivateRoute path="/users"><MainPage/></PrivateRoute>
+    <PublicRoute exact restricted path="/"><LoginPage/></PublicRoute>
+    <Route><Redirect to="/"/></Route>
+  </Switch>
+</Router>
+
 
 export default App

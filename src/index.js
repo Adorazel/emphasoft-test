@@ -6,10 +6,11 @@ import store from "./store"
 import {ApiServiceProvider} from "./contexts"
 import {Storage, ErrorBoundary} from "./hoc"
 import {ApiService} from "./services"
-import {AppContainer} from "./containers"
+import {App} from "./components"
 import "bootstrap/dist/css/bootstrap.css"
 import "notie/dist/notie.css"
 import "./index.css"
+
 
 const api = new ApiService()
 
@@ -19,7 +20,7 @@ ReactDOM.render(
       <Storage>
         <ErrorBoundary>
           <ApiServiceProvider value={api}>
-            <AppContainer/>
+            <App/>
           </ApiServiceProvider>
         </ErrorBoundary>
       </Storage>
